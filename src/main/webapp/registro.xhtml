@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+</h:head>
+
+<h:body>
+	
+<h:form>
+	Nombres: <h:inputText id="nombres" value="#{registroBean.nombres}"></h:inputText><br />
+	Paterno: <h:inputText id="paterno" value="#{registroBean.paterno}"></h:inputText><br />
+	Materno: <h:inputText id="materno" value="#{registroBean.materno}"></h:inputText><br />
+	Clave: <h:inputSecret id="clave" value="#{registroBean.clave}"></h:inputSecret><br />
+	Repetir clave: <h:inputSecret id="opeB" value="#{registroBean.clave2}"></h:inputSecret><br />
+	Sexo: 
+		<h:selectOneRadio id="sexo" value="#{registroBean.sexo}">
+	        <f:selectItem itemValue="m" itemLabel="Masculino" />
+	        <f:selectItem itemValue="f" itemLabel="Femenino" />
+	    </h:selectOneRadio> <br/>
+    Sistema operativo: 
+	<h:selectManyCheckbox value="#{registroBean.sisop}">
+	   	<f:selectItem itemValue="win" itemLabel="Windows 8" />
+	   	<f:selectItem itemValue="lin" itemLabel="Linux" />
+	   	<f:selectItem itemValue="mac" itemLabel="Mac OS" />
+	</h:selectManyCheckbox> <br/>
+
+	<h:commandButton value="Registrar" actionListener="#{registroBean.registrar}"></h:commandButton>
+</h:form>
+	
+	<hr/>
+	
+	<c:if test="#{registroBean.nombres != null}">
+	
+		<h4>Los datos ingresados son:</h4>
+		<ul>
+			<li>#{registroBean.nombres}</li>
+			<li>#{registroBean.paterno}</li>
+			<li>#{registroBean.materno}</li>
+			<li>#{registroBean.claveMensaje}</li>
+			<c:if test="#{registroBean.sexo == 'm'}">
+				<li>Masculino</li>	
+			</c:if>
+			<c:if test="#{registroBean.sexo == 'f'}">
+				<li>Femenino</li>	
+			</c:if>
+			<ul>
+				<c:forEach items="#{registroBean.sisop}" var="sp">				
+					<li>#{sp}</li>
+				</c:forEach>			
+			</ul>
+		</ul>
+		
+	</c:if>
+	
+</h:body>
+</html>

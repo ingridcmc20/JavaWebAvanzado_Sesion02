@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+<style>
+.info {
+	display: none;
+}
+
+.error {
+	color: red;
+}
+</style>
+
+</h:head>
+
+<h:body>
+	<h:messages infoClass="info" errorClass="error"></h:messages>
+	<h:form>
+		Título: <h:inputText id="titulo" value="#{noticiaBean.titulo}"
+			required="true" requiredMessage="Ingrese el Título" />
+		<br />
+		Días a publicarse: <h:inputText id="dias" value="#{noticiaBean.dias}"
+			required="true" requiredMessage="Ingrese los días" />
+		<br />
+		Contenido: <h:inputTextarea id="contenido"
+			value="#{noticiaBean.contenido}" required="true"
+			requiredMessage="Ingrese el contenido" rows="4"/>
+		<h:message for="contenido" errorClass="error" />
+		<br />
+		<h:commandButton value="Enviar" actionListener="#{noticiaBean.enviar}" />
+	</h:form>
+</h:body>
+</html>

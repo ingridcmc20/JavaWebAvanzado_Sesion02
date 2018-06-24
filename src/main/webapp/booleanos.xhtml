@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+</h:head>
+
+<h:body>
+	
+    <h:form>
+	Operador 1: <h:inputText id="opeA" value="#{booleanoBean.opeA}"></h:inputText><br />
+	Operador 2: <h:inputText id="opeB" value="#{booleanoBean.opeB}"></h:inputText><br />
+	Operación: 
+		<h:selectOneMenu value="#{booleanoBean.operacion}">
+		   	<f:selectItem itemValue="and" itemLabel="AND" />
+		   	<f:selectItem itemValue="or" itemLabel="OR" />
+		   	<f:selectItem itemValue="xor" itemLabel="XOR" />
+		</h:selectOneMenu> <br/>
+
+	<h:commandButton value="Calcular" action="#{booleanoBean.calcular}"></h:commandButton>
+     </h:form>
+	El resultado es: #{booleanoBean.total}
+</h:body>
+</html>

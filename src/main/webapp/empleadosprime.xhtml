@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+</h:head>
+<h:body>
+	<p:dataTable value="#{gestorEmpleadoBean.list}" var="empleado" style="width: 50%" emptyMessage="No hay empleados">
+		<p:column style="width: 30%; text-align: center;">
+			<f:facet name="header">ID</f:facet>
+			#{empleado.id}
+		</p:column>
+		<p:column>
+			<f:facet name="header">Nombre</f:facet>
+			#{empleado.nombre}
+		</p:column>
+	</p:dataTable>
+</h:body>
+</html>
