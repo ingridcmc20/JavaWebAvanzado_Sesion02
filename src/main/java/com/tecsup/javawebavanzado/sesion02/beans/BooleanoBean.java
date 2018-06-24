@@ -4,7 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name = "booleanoBean")
-@SessionScoped
+@SessionScoped 
 public class BooleanoBean {
 	public boolean opeA;
 	public boolean opeB;
